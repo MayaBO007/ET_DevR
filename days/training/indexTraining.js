@@ -44,30 +44,26 @@ function timeline() {
                     let goTraining = async function () {
                         let isDayDone = await trainingDay();
                         if (isDayDone == "done") {
+                            clearInterval(sessionIntervalTrainingDay);
                             let updatedDates = updateDates();
                             studySessionData.isDayDone = "done";
                             studySessionData.expDaysDate = updatedDates.fullDate;
-                            console.log(studySessionData);
                             platform.saveSession(studySessionData, true);
-                            platform.getAllSessions().then((data) => {
-                                console.log(data);
-                                document.getElementById("endDayMsg").style.display = "inline";
-                                document.getElementById("endDayMsg").addEventListener("click", function () {
-                                    showWinnings()
-                                    setTimeout(() => {
-                                        if (window.matchMedia("(orientation: landscape)").matches) {
-                                            hideWinnings();
-                                            document.getElementById("fiveAM").style.display = "inline";
-                                        } else {
-                                            hideWinnings();
-                                            document.getElementById("fiveAM_hor").style.display = "inline";
-                                        }
-                                    }, 10000)
-                                    setTimeout(() => {
-                                        moveToDay();
-                                    }, timeToFive())
-                                })
-
+                            document.getElementById("endDayMsg").style.display = "inline";
+                            document.getElementById("endDayMsg").addEventListener("click", function () {
+                                showWinnings()
+                                setTimeout(() => {
+                                    if (window.matchMedia("(orientation: landscape)").matches) {
+                                        hideWinnings();
+                                        document.getElementById("fiveAM").style.display = "inline";
+                                    } else {
+                                        hideWinnings();
+                                        document.getElementById("fiveAM_hor").style.display = "inline";
+                                    }
+                                }, 10000)
+                                setTimeout(() => {
+                                    moveToDay();
+                                }, timeToFive())
                             })
                         }
 
