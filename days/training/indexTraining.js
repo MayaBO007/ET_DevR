@@ -45,6 +45,8 @@ function timeline() {
                         let isDayDone = await trainingDay();
                         if (isDayDone == "done") {
                             clearInterval(sessionIntervalTrainingDay);
+                            reset_redCar();
+                            reset_blueCar();
                             let updatedDates = updateDates();
                             studySessionData.isDayDone = "done";
                             studySessionData.expDaysDate = updatedDates.fullDate;
