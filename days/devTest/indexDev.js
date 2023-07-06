@@ -89,6 +89,13 @@ function timeline() {
                     } else {
                         document.getElementById("endOfGame_hor").style.display = "inline";
                     }
+                    const totalWinsNotDone = {
+                        totalBlues: totalBlues,
+                        totalReds: totalReds
+                    }
+                    sumCorrectFirstPress().then(() => {
+                        platform.saveSession(totalWinsNotDone, true);
+                    })
                 }
             });
         });

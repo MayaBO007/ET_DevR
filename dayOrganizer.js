@@ -12,7 +12,7 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "02") {
+            if (todayDate == "19") {
                 platform.goToUrl("days/twoTests/twoTests.html");
             } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
@@ -47,6 +47,13 @@ function moveToDay() {
                 } else {
                     endOfGame_hor.style.display = "inline";
                 }
+                const totalWinsNotDone = {
+                    totalBlues: totalBlues,
+                    totalReds: totalReds
+                }
+                sumCorrectFirstPress().then(() => {
+                    platform.saveSession(totalWinsNotDone, true);
+                })
             }
         })
     });
