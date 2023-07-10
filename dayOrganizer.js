@@ -2,9 +2,6 @@ function moveToDay() {
     platform.getAllSessions().then((data) => {
         getIndexSessionData(data).then((i) => {
             studySessionData = data[i];
-            if (studySessionData.subId == "64a68463aa154e67c58b9730") {
-                studySessionData = data[5];
-            }
             let updatedDates = updateDates();
             let todayDate = getTodayDate().slice(0, 2);
 
@@ -15,19 +12,16 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            // if (todayDate == "19") {
-            //     platform.goToUrl("days/twoTests/twoTests.html");
-            // }
-            if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
+            if (todayDate == "19") {
+                platform.goToUrl("days/twoTests/twoTests.html");
+            } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
                 studySessionData.doneInstructions = "stratIns";
-            } else if ((studySessionData.doneInstructions === "doneInstructions") || (studySessionData.subId == "64a68463aa154e67c58b9730")) {
+            } else if (studySessionData.doneInstructions === "doneInstructions") {
                 if (
                     studySessionData.isDayDone === "done" &&
                     studySessionData.doneTest1 !== "doneTest1" ||
-                    Number(todayDate) === Number(dayDate()) ||
-                    studySessionData.subId == "64a68463aa154e67c58b9730"
-                ) {
+                    Number(todayDate) === Number(dayDate())) {
                     platform.goToUrl("days/training/training.html");
                 } else if (
                     studySessionData.isDayDone !== "done" &&
