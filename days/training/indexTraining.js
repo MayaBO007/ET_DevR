@@ -4,7 +4,7 @@ function timeline() {
         getIndexSessionData(data).then((i) => {
             studySessionData = data[i];
             if (studySessionData.subId == "64a68463aa154e67c58b9730") {
-                studySessionData = data[5];
+                studySessionData = data[4];
             }
             deleteFromSessionData();
             let updatedDates = updateDates();
