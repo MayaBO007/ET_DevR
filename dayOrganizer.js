@@ -12,9 +12,10 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "19") {
-                platform.goToUrl("days/twoTests/twoTests.html");
-            } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
+            // if (todayDate == "19") {
+            //     platform.goToUrl("days/twoTests/twoTests.html");
+            // }
+            if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
                 studySessionData.doneInstructions = "stratIns";
             } else if (studySessionData.doneInstructions === "doneInstructions") {
