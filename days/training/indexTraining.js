@@ -13,28 +13,28 @@ function timeline() {
                 updatedDates.yesterday = updatedDates.yesterdayMinusOne;
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
             }
-            if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) || (studySessionData.subId != "64a68463aa154e67c58b9730")) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
-                // document.addEventListener("DOMContentLoaded", function () {
-                if (window.matchMedia("(orientation: landscape)").matches) {
-                    document.getElementById("fiveAM").style.display = "inline";
-                } else {
-                    document.getElementById("fiveAM_hor").style.display = "inline";
-                }
+            // if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) || (studySessionData.subId != "64a68463aa154e67c58b9730")) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+            //     // document.addEventListener("DOMContentLoaded", function () {
+            //     if (window.matchMedia("(orientation: landscape)").matches) {
+            //         document.getElementById("fiveAM").style.display = "inline";
+            //     } else {
+            //         document.getElementById("fiveAM_hor").style.display = "inline";
+            //     }
 
-                // window.addEventListener("orientationchange", function () {
-                //     if (window.matchMedia("(orientation: landscape)").matches) {
-                //         document.getElementById("fiveAM").style.display = "inline";
-                //     } else {
-                //         document.getElementById("fiveAM_hor").style.display = "inline";
-                //     }
-                // });
-                // });
+            //     // window.addEventListener("orientationchange", function () {
+            //     //     if (window.matchMedia("(orientation: landscape)").matches) {
+            //     //         document.getElementById("fiveAM").style.display = "inline";
+            //     //     } else {
+            //     //         document.getElementById("fiveAM_hor").style.display = "inline";
+            //     //     }
+            //     // });
+            //     // });
 
-                setTimeout(() => {
-                    moveToDay();
-                }, timeToFive());
+            //     setTimeout(() => {
+            //         moveToDay();
+            //     }, timeToFive());
 
-            }
+            // }
 
             else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (studySessionData.subId == "64a68463aa154e67c58b9730")) {
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
